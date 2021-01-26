@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+</head>
+<style>
+table
+  {
+      border-collapse: collapse; 
+      margin: auto;
+   width: 50% !important; 
+   margin-top: auto;
+margin-bottom: auto;
+  }
+
+  td
+  {
+      border: 1px solid black;
+  }
+  .center {
+  margin-left: auto;
+  margin-right: auto;
+}
+body{
+  background-color: #d4edee !important;
+}
+  </style>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">E-transport</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+           
+            <a class="nav-item nav-link " name="usagerAjout" href="/" role="button" >Ajouter un usager<span class="sr-only">(current)</span></a>
+            <a class="nav-item nav-link" href="/Moyen" role="button">Ajouter un moyen de transport</a>
+            <a class="nav-item nav-link" href="/ajoutStation" role="button">Ajouter une station</a>
+            <a class="nav-item nav-link " href="/Transit" role="button">Afficher les stations de transit </a>
+            <a class="nav-item nav-link " href="/court" role="button">Le plus court chemin</a>
+            <a class="nav-item nav-link" href="/adequat" role="button">Le moyen de transport le plus adéquat </a>
+        </div>
+      </div>
+    </nav>
+
+    <h1> Stations :</h1>
+    <br/><br/><br/>
+
+   <table class="table table-dark center">
+
+  
+    <tr>
+        
+      <td>Stations </td>
+    </tr>
+    <%console.log(moyens); %> 
+
+    <%const iterator = moyens; %> 
+    
+    <%for (const value of iterator) {%>
+        <tr>
+        
+        <td><%= value.station %>  </td>
+      </tr>
+        <% } %>
+          
+
+</table>
+    
+
+</il>
+</body>
+</html>

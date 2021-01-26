@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+</head>
+<style>
+  body{
+  background-color: #d4edee !important;
+}
+
+  .container{
+  position: relative;
+  text-align: center;
+}
+.row{
+  width: 270px;
+  height: 400px;
+  background-color: #d4edee !important;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 60%;
+  left: 36%;
+  margin: 50px 0 0 50px;
+  text-align: center;
+}
+
+
+</style>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">E-transport</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+           
+          <a class="nav-item nav-link active" name="usagerAjout" >Ajouter un usager</a>
+          <a class="nav-item nav-link" href="/Moyen" role="button">Ajouter un moyen de transport</a>
+          <a class="nav-item nav-link" href="/ajoutStation" role="button">Ajouter une station</a>
+          <a class="nav-item nav-link " href="/Transit" role="button">Afficher les stations de transit </a>
+            <a class="nav-item nav-link " href="/court" role="button">Le plus court chemin</a>
+            <a class="nav-item nav-link" href="/adequat" role="button">Le moyen de transport le plus adéquat </a>
+        </div>
+      </div>
+    </nav>
+  <div class="container" >
+    <h1> Informations Usager</h1>
+
+    <div class="row">
+      <br/><br/><br/><br/>
+<form method="post" action="/usager/add">
+<div class="form-group">
+<p>
+   Votre année de naissance :<br />
+   <input type="text" name="anneeNaissance" value="" />
+</p>
+ </div>
+ <div class="form-group">
+<p>
+   Vous êtes handicapé ?<br />
+   <select name="handicap">
+      <option value="OUI">O</option>
+      <option value="NON" selected="selected">N</option>    
+   </select>
+</p>
+ </div>
+  <div class="form-group">
+<p>
+   Vous êtes ?<br />
+   <select name="fonction">
+      <option value="Etudiant">Etudiant</option>
+      <option value="Fonctionnaire" selected="selected">Fonctionnaire</option>
+      <option value="salarie">Salarié</option>
+      <option value="liberal">Libéral</option>
+      <option value="retraite"> Retraité</option>
+      <option value="autre">Autre</option>
+</select>
+</p>
+
+<div class="form-group">
+<p>
+   Type de transport préféré:<br />
+   <select name="type">
+      <option value="bus">Bus</option>
+      <option value="tram" selected="selected">Tram</option>
+      <option value="taxi">Taxi</option>
+      <option value="covoiturage">Covoiturage</option>
+      
+</select>
+</p>
+ </div>
+ <div class="form-group">
+
+ <div class="form-group" >
+<p>
+  Niveau de préférence <br />
+   <select name="preference">
+      <option value="0">0</option>
+      <option value="1" selected="selected">1</option>  
+       <option value="0">2</option>
+   </select>
+</p>
+<button type="submit" class="btn btn-primary">Submit</button>
+
+ </div>
+      </div>
+    
+  </div>
+</form>
+
+</body>
+</html>
+

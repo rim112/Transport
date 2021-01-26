@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+</head>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+ $('#champ1').hide(); // on cache le champ par défaut
+ $('#champ2').hide();
+ $('#champ3').hide();
+ $('select[name="stat"]').change(function() { // lorsqu'on change de valeur dans la liste
+ var valeur = $(this).val(); // valeur sélectionnée
+  
+     //if(valeur != '') { // si non vide
+         if(valeur == 'fin') { 
+             $('#champ1').show();
+         } else {
+             $('#champ1').hide();           
+         }
+         
+     //}
+   
+     if(valeur == 'debut') { 
+             $('#champ2').show();
+         } else {
+             $('#champ2').hide();           
+         }
+     
+     if(valeur == 'intermediaire') { 
+             $('#champ3').show();
+         } else {
+             $('#champ3').hide();           
+         }
+
+ });
+});
+</script>
+<style>
+ body{
+  background-color: #d4edee !important;
+}
+.container{
+  position: relative;
+  text-align: center;
+}
+.row{
+  width: 270px;
+  height: 400px;
+  background-color: #d4edee !important;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 60%;
+  left: 33%;
+  margin: 50px 0 0 50px;
+  text-align: center;
+}
+</style>
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">E-transport</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+           
+            <a class="nav-item nav-link " name="usagerAjout" href="/" role="button" >Ajouter un usager</a>
+            <a class="nav-item nav-link" href="/Moyen" role="button">Ajouter un moyen de transport</a>
+            <a class="nav-item nav-link active">Ajouter une station</a>
+            <a class="nav-item nav-link " href="/Transit" role="button">Afficher les stations de transit </a>
+            <a class="nav-item nav-link " href="/court" role="button">Le plus court chemin</a>
+            <a class="nav-item nav-link" href="/adequat" role="button">Le moyen de transport le plus adéquat </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container">
+
+        <h1> Ajouter une station</h1>
+        <div class="row">
+          
+    <form method="post" action="/station/add">
+      <div class="form-group">
+        <p>
+          Sélectionner le moyen de transport:<br />
+           <select name="type">
+              <option value="Bus">Bus</option>
+              <option value="Tram" selected="selected">Tram</option>
+              <option value="Taxi">Taxi</option>
+              <option value="Covoiturage">Covoiturage</option>
+              
+        </select>
+        </p>
+         </div>
+         <div class="form-group">
+          <p>
+              Numéro du transport :<br />
+              <input type="text" name="notrans" value="" />
+           </p>
+           </div>
+         <div class="form-group">
+          <p>
+            Emplacement de la station ajoutée:<br />
+             <select name="stat">
+                <option value="debut">Station de début</option>
+                <option value="fin">Station de fin </option>
+                <option value="intermediaire" >Station intermédiaire</option>
+                <option value=""  selected="selected">---Choisir une option---</option>
+                
+          </select>
+          </p>
+           </div>
+         
+      <div id="champ3" >
+      <div class="form-group">
+        <p>
+            Nom de la station :<br />
+            <input type="text" name="nominter" value="" />
+         </p>
+         </div>
+   
+        <div class="form-group">
+            <p>
+                Liste des dates d'arrivée :<br />
+                <input type="text" name="listinter" value="" />
+             </p>
+             </div>
+       
+        <div class="form-group">
+            <p>
+               Station précédente :<br />
+               <input type="text" name="Stationprecinter" value="" />
+            </p>
+            
+             </div>
+             <div class="form-group">
+                <p>
+                    Station suivante :<br />
+                   <input type="text" name="Stationsuivinter" value="" />
+                </p>
+                 </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+  </div>
+  <div id="champ2" >
+    <div class="form-group">
+      <p>
+          Nom de la station :<br />
+          <input type="text" name="nomde" value="" />
+       </p>
+       </div>
+ 
+      <div class="form-group">
+          <p>
+              Liste des dates d'arrivée :<br />
+              <input type="text" name="listde" value="" />
+           </p>
+           </div>
+           <div class="form-group">
+              <p>
+                  Station suivante :<br />
+                 <input type="text" name="Stationsuivde" value="" />
+              </p>
+               </div>
+  <button type="submit" class="btn btn-primary">Submit</button>
+</div>
+<div id="champ1" >
+  <div class="form-group">
+    <p>
+        Nom de la station :<br />
+        <input type="text" name="nomfi" value="" />
+     </p>
+     </div>
+
+    <div class="form-group">
+        <p>
+            Liste des dates d'arrivée :<br />
+            <input type="text" name="listfi" value="" />
+         </p>
+         </div>
+         <div class="form-group">
+          <p>
+              Station précédente :<br />
+             <input type="text" name="Stationsuivfi" value="" />
+          </p>
+           </div>
+         
+<button type="submit" class="btn btn-primary">Submit</button>
+</div>
+     </div>
+          </div>
+        </div>
+      </div>
+    </form>
+</body>
+</html>

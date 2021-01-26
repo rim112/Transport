@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootswatch/4.5.2/litera/bootstrap.min.css" integrity="sha384-enpDwFISL6M3ZGZ50Tjo8m65q06uLVnyvkFO3rsoW0UC15ATBFz3QEhr3hmxpYsn" crossorigin="anonymous">
+  <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.4.3/jquery.min.js" ></script>
+<script type="text/javascript">
+$(document).ready(function() {
+ 
+    $('#champ1').hide(); // on cache le champ par défaut
+    $('#champ2').hide();
+    $('#champ3').hide();
+    $('select[name="type"]').change(function() { // lorsqu'on change de valeur dans la liste
+    var valeur = $(this).val(); // valeur sélectionnée
+     
+        //if(valeur != '') { // si non vide
+            if(valeur == 'bus') { 
+                $('#champ1').show();
+            } else {
+                $('#champ1').hide();           
+            }
+            
+        //}
+      
+        if(valeur == 'taxi') { 
+                $('#champ2').show();
+            } else {
+                $('#champ2').hide();           
+            }
+        
+        if(valeur == 'covoiturage') { 
+                $('#champ3').show();
+            } else {
+                $('#champ3').hide();           
+            }
+    });
+});
+</script>
+<style>
+  body{
+  background-color: #d4edee !important;
+}
+.container{
+  position: relative;
+  text-align: center;
+}
+.row{
+  width: 270px;
+  height: 400px;
+  background-color: #d4edee !important;
+  /* Center vertically and horizontally */
+  position: absolute;
+  top: 60%;
+  left: 33%;
+  margin: 50px 0 0 50px;
+  text-align: center;
+}
+</style>
+</head>
+
+
+<body>
+   <nav class="navbar navbar-expand-lg navbar-light bg-light">
+      <a class="navbar-brand">E-transport</a>
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
+        <div class="navbar-nav">
+           
+            <a class="nav-item nav-link " name="usagerAjout" href="/" role="button" >Ajouter un usager</a>
+            <a class="nav-item nav-link active">Ajouter un moyen de transport</a>
+            <a class="nav-item nav-link" href="/ajoutStation" role="button">Ajouter une station</a>
+            <a class="nav-item nav-link " href="/Transit" role="button">Afficher les stations de transit </a>
+            <a class="nav-item nav-link " href="/court" role="button">Le plus court chemin</a>
+            <a class="nav-item nav-link" href="/adequat" role="button">Le moyen de transport le plus adéquat </a>
+        </div>
+      </div>
+    </nav>
+    <div class="container"> 
+      <br><br/><br/>
+      <h1> Ajouter un moyen de transport</h1>
+        <div class="row">
+          
+    <form method="post" action="/moyen/add">
+        <div class="form-group">
+            <p>
+              Sélectionner le moyen de transport:<br />
+               <select name="type">
+                <option value="" selected="selected">----Choisir une option---</option>
+                  <option value="bus">Bus</option>
+                  <option value="taxi">Taxi</option>
+                  <option value="covoiturage">Covoiturage</option>
+                  
+            </select>
+            </p>
+             </div>
+        <div id="champ1">
+          <p>
+            Numéro du Bus:<br />
+            <input type="text" name="nobus" value="" />
+         </p>
+         <p>
+          Nom du chauffeur:<br />
+          <input type="text" name="chauffeurbus" value="" />
+        </p>
+        </div>
+        <div id="champ2">
+          <p>
+            Numéro du taxi:<br />
+            <input type="text" name="notaxi" value="" />
+         </p>
+         <p>
+          Nom du chauffeur:<br />
+          <input type="text" name="chauffeurtaxi" value="" />
+        </p>
+        <p>
+          Numéro de places:<br />
+          <input type="text" name="NombrePlacestaxi" value="" />
+        </p>
+        </div>
+        <div id="champ3">
+          <p>
+            Numéro de la voiture:<br />
+            <input type="text" name="novoiture" value="" />
+         </p>
+         <p>
+          Nom du chauffeur:<br />
+          <input type="text" name="chauffeurvoit" value="" />
+        </p>
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+          </div>
+        </div>
+      </div>
+    </form>
+</body>
+</html>
+
+
+
